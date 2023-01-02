@@ -1,10 +1,58 @@
+from time import sleep
+
+def linha():
+
+    """
+
+        FUNÇÃO LANÇADA PARA INSERIR UMA LINHA AIMCA DO INÍCIO DO PROGRAMA,
+        PARA MARCAR DIVISÕES, INÍCIOS OU FINS!
+
+    """
+
+    t = 50
+    print('*' * t)
+
+def intro():
+
+    """
+
+        FUNÇÃO LANÇADA PARA INICIAR UMA INTRODUÇÃO AO PROGRAMA,
+        ONDE CONSTA TODA A APRESENTAÇÃO SOBRE O PROGRAMA!
+
+    """
+
+    sleep(1)
+    print('Nico Entertainment°')
+    sleep(1)
+    print('NoobMaster Productions...')
+    sleep(1)
+    print('*' * 50)
+    print(f'{"Escape...":^50}')
+    print('*' * 50)
+    sleep(1)
+    print('\n')
+    print('Press Strat')
+    for i in range(0, 3):
+        print('.', end='')
+        sleep(1)
+    print()
+
+
 def historia():
+
+    """
+
+        FUNÇÃO LANÇADA PARA INICIAR E CONTAR A HISTORIA CONTADA
+        SOBRE O PROGRAMA, CONTANDO TODOS OS FATOS SOBRE.
+
+    """
+
     print(f' Olá, essa é a história de um personagem sem memória. Isso, \033[31mVOCÊ\033[m...\n'
           f'Você acaba de acordar no meio de uma sala, com a luz\n'
           f'falhando e uma mancha de sangue ... na parede.\n'
           f'Você tenta lembrar o seu nome... e aos poucos a memória vem...\n')
     print()
-    personagem = str(input('Qual é o nome que você lembrou? '))
+    personagem = str(input('Qual é o nome que você lembrou? ')).strip().upper()
     print()
     print(f' "Olá, {personagem}"\n'
           f' - Você ouve alguém sussurrar no fundo da sala,\n'
@@ -15,10 +63,18 @@ def historia():
           f' de criatura, um mosntro, algo que causou medo e espanto, e você não sabe\n'
           f'o que precisar fazer para se livrar desta situação! \n'
           f'Tentando encontrar uma forma de fugir da sala, o monstro se levanta e...')
+    print("""
+      ░▄▄▄▄░
+      ▀▀▄██►
+      ▀▀███►
+      ░▀███► ░█►
+      ▒▄████▀▀
+      """)
     print()
     for i in range(0, 3):
         print('.', end='')
-        sleep(0.5)
+        sleep(1.5)
+
     print()
     print(f'\033[31m...você nota sangue em suas mãos...\033[m\n'
           f'Você tenta, em um ato de desespero, temendo pela sua vida\n'
@@ -27,6 +83,15 @@ def historia():
 
 
 def opcao():
+
+    """
+
+        FUNÇÃO LANÇADA PARA OFERECER AS OPÇÕES DE JOGO
+        E DE METODO DE FINALZAR O PROGRAMA.
+
+    """
+
+
     print('O que você vai fazer?')
 
     print('''
@@ -35,9 +100,7 @@ def opcao():
 
         ''')
     escolha = int(input('Você escolheu: '))
-    for i in range(0, 3):
-        print('.', end='')
-        sleep(0.5)
+
     if escolha == 1:
         print()
         print('Na sua tentativa de fugir do lugar, o monstro conseguiu alcançar você e, sem exitar, te atacou\n'
@@ -46,20 +109,21 @@ def opcao():
         print('Na tentativa de se livrar do mosntro e fugir da sala, você \n'
               'decide lutar pela sua vida e acerta uma voadora em cheio no monstro e ele, nao resistindo\n'
               ' ao seu esforço máximo, acaba....\033[31mMORRENDO!\033[m')
+    
 
 
-def intro():
-    sleep(0.5)
-    print('Nico Entertainment°')
-    sleep(0.5)
-    print('NoobMaster Productions...')
-    sleep(0.5)
-    print('*' * 50)
-    print(f'{"Escape...":^50}')
-    print('*' * 50)
-    sleep(0.5)
-    print('\n')
-    print('Press Strat')
-    for i in range(0, 3):
-        print('.', end='')
-        sleep(1)
+
+
+#Main Event
+
+
+linha()
+intro()
+historia()
+opcao()
+linha()
+
+
+
+
+
