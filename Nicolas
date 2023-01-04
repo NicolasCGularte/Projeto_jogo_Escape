@@ -1,7 +1,7 @@
 from time import sleep
 
-def linha():
 
+def linha():
     """
 
         FUNÇÃO LANÇADA PARA INSERIR UMA LINHA AIMCA DO INÍCIO DO PROGRAMA,
@@ -12,8 +12,8 @@ def linha():
     t = 50
     print('*' * t)
 
-def intro():
 
+def intro():
     """
 
         FUNÇÃO LANÇADA PARA INICIAR UMA INTRODUÇÃO AO PROGRAMA,
@@ -39,7 +39,6 @@ def intro():
 
 
 def historia():
-
     """
 
         FUNÇÃO LANÇADA PARA INICIAR E CONTAR A HISTORIA CONTADA
@@ -47,22 +46,24 @@ def historia():
 
     """
 
-    print(f' Olá, essa é a história de um personagem sem memória. Isso, \033[31mVOCÊ\033[m...\n'
-          f'Você acaba de acordar no meio de uma sala, com a luz\n'
-          f'falhando e uma mancha de sangue ... na parede.\n'
-          f'Você tenta lembrar o seu nome... e aos poucos a memória vem...\n')
+    print(f" Olá, essa é a história de um personagem sem memória. Isso, \033[31mVOCÊ\033[m...\n"
+          f"Você acaba de acordar no meio de uma sala, com a luz\n"
+          f"falhando e uma mancha de sangue ... na parede.\n"
+          f"Você tenta lembrar o seu nome... e aos poucos a memória vem...\n")
     print()
-    personagem = str(input('Qual é o nome que você lembrou? ')).strip().upper()
-    print()
-    print(f' "Olá, {personagem}"\n'
-          f' - Você ouve alguém sussurrar no fundo da sala,\n'
-          f' algo impossível de compreender e entender, pelo fato de você estar \n'
-          f'confuso e sem entender o que estava acontecendo! Esfregando os olhos\n'
-          f'e tentando enxergar e identificar vultos e sombras que estavam ao redor,\n'
-          f'em meio às penumbras, de repente surge com um rosnado ameaçador, algum tipo\n'
-          f' de criatura, um mosntro, algo que causou medo e espanto, e você não sabe\n'
-          f'o que precisar fazer para se livrar desta situação! \n'
-          f'Tentando encontrar uma forma de fugir da sala, o monstro se levanta e...')
+    personagem = input('Qual é o nome que você lembrou? ').strip().upper()
+    while not personagem.isalpha():
+        personagem = input("Erro! Tente novamente... Qual é o nome que você lembrou? ")
+        print()
+        print(f' "Olá, {personagem}"\n'
+              f' - Você ouve alguém sussurrar no fundo da sala,\n'
+              f' algo impossível de compreender e entender, pelo fato de você estar \n'
+              f'confuso e sem entender o que estava acontecendo! Esfregando os olhos\n'
+              f'e tentando enxergar e identificar vultos e sombras que estavam ao redor,\n'
+              f'em meio às penumbras, de repente surge com um rosnado ameaçador, algum tipo\n'
+              f' de criatura, um mosntro, algo que causou medo e espanto, e você não sabe\n'
+              f'o que precisar fazer para se livrar desta situação! \n'
+              f'Tentando encontrar uma forma de fugir da sala, o monstro se levanta e...')
     print("""
       ░▄▄▄▄░
       ▀▀▄██►
@@ -84,6 +85,7 @@ def historia():
 
 def opcao():
 
+
     """
 
         FUNÇÃO LANÇADA PARA OFERECER AS OPÇÕES DE JOGO
@@ -92,38 +94,54 @@ def opcao():
     """
 
 
-    print('O que você vai fazer?')
+    while True:
+        print('O que você vai fazer?')
+        print('''
+                \033[32m[1]\033[m Fugir
+                \033[32m[2]\033[m Dar uma voadora no monstro
+                \033[32m[3]\033[m Sair
+                ''')
+        escolha = int(input('Você escolheu: '))
+        '''if escolha != 1 or 2 or 3:
+            print("Opção invalida...")
+            print()'''
+        if escolha == 1:
+            print()
+            print('Na sua tentativa de fugir do lugar, o monstro conseguiu alcançar você e, sem exitar, te atacou\n'
+                  'e, não foi possível resistir.....e você.....\033[31mMORREU!\033[m')
+            print()
+        if escolha == 2:
+            print()
+            print('Na tentativa de se livrar do mosntro e fugir da sala, você \n'
+                  'decide lutar pela sua vida e acerta uma voadora em cheio no monstro e ele, nao resistindo\n'
+                  ' ao seu esforço máximo, acaba....\033[31mMORRENDO!\033[m')
+            print()
 
-    print('''
-        \033[32m[1]\033[m Fugir
-        \033[32m[2]\033[m Dar uma voadora no monstro
+        if escolha == 3:
+            print("Que pena que você não teve coragem suficiente"
+                  " para encarar esse desafio!")
+            print("\033[31mGAME OVER\033[m, seu medroso....")
+            break
 
-        ''')
-    escolha = int(input('Você escolheu: '))
-
-    if escolha == 1:
-        print()
-        print('Na sua tentativa de fugir do lugar, o monstro conseguiu alcançar você e, sem exitar, te atacou\n'
-              'e, não foi possível resistir.....e você.....\033[31mMORREU!\033[m')
-    elif escolha == 2:
-        print('Na tentativa de se livrar do mosntro e fugir da sala, você \n'
-              'decide lutar pela sua vida e acerta uma voadora em cheio no monstro e ele, nao resistindo\n'
-              ' ao seu esforço máximo, acaba....\033[31mMORRENDO!\033[m')
-    
+        r = str(input('Deseja jogar outra vez [S/N]?')).upper().strip()[0]
+        while r not in 'SN':
+            r = str(input('Resposta inválida! Deseja jogar outra vez [S/N]?')).upper().strip()[0]
+        if r == 'N':
+            break
 
 
 
 
-#Main Event
+
+
+
+
+# Main Event
 
 
 linha()
-intro()
+#intro()
 historia()
-opcao()
+#opcao()
 linha()
-
-
-
-
 
